@@ -1,0 +1,42 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model IEnumerable<Assignment3.Models.NewMovies>
+
+<!--This webpage dynamically displays the list of all movies entered into the form by the user-->
+<div>
+    <h1>Movie List</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Year</th>
+                <th>Director</th>
+                <th>Rating</th>
+                <th>Edited</th>
+                <th>Lent To</th>
+                <th>Notes</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (Assignment3.Models.NewMovies movie in Model)
+            {
+            <tr>
+                <td>@movie.Title</td>
+                <td>@movie.Year</td>
+                <td>@movie.Director</td>
+                <td>@movie.Rating</td>
+                <td>@movie.Edited</td>
+                <td>@movie.LentTo</td>
+                <td>@movie.Notes</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+
+</div>
