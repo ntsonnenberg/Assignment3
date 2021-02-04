@@ -14,10 +14,7 @@ namespace Assignment3.Models
 
         public static void addMovie(NewMovies movie)
         {
-            if(movie.Title != "Independence Day")
-            {
-                movies.Add(movie);
-            }
+            movies.Add(movie);
         }
     }
 }

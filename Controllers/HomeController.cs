@@ -49,7 +49,7 @@ namespace Assignment3.Controllers
         //shows the MovieList page view and passes in the movies
         public IActionResult MovieList()
         {
-            return View(MovieStorage.Movies);
+            return View(MovieStorage.Movies.Where(movie => movie.Title != "Independence Day"));
         }
 
         public IActionResult Privacy()
