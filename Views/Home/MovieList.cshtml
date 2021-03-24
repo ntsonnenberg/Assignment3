@@ -1,18 +1,13 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
-
-@model IEnumerable<Assignment3.Models.NewMovies>
+﻿@model IEnumerable<NewMovies>
 
 <!--This webpage dynamically displays the list of all movies entered into the form by the user-->
 <div>
     <h1>Movie List</h1>
 
-    <table>
+    <table class="table table-bordered table-striped">
         <thead>
             <tr>
+                <th></th>
                 <th>Title</th>
                 <th>Year</th>
                 <th>Director</th>
@@ -20,21 +15,34 @@
                 <th>Edited</th>
                 <th>Lent To</th>
                 <th>Notes</th>
+                <th></th>
             </tr>
         </thead>
 
         <tbody>
-            @foreach (Assignment3.Models.NewMovies movie in Model)
+            @foreach (var movie in Model)
             {
-            <tr>
-                <td>@movie.Title</td>
-                <td>@movie.Year</td>
-                <td>@movie.Director</td>
-                <td>@movie.Rating</td>
-                <td>@movie.Edited</td>
-                <td>@movie.LentTo</td>
-                <td>@movie.Notes</td>
-            </tr>
+                <tr>
+                    <td>
+                        <form asp-action="EditMovie" method="get">
+                            <input type="hidden" name="mID" value="@movie.MovieId" />
+                            <button type="submit" class="btn-outline-secondary btn-sm" style="float:right">Edit</button>
+                        </form>
+                    </td>
+                    <td>@movie.Title</td>
+                    <td>@movie.Year</td>
+                    <td>@movie.Director</td>
+                    <td>@movie.Rating</td>
+                    <td>@movie.Edited</td>
+                    <td>@movie.LentTo</td>
+                    <td>@movie.Notes</td>
+                    <td>
+                        <form asp-action="Index" method="post">
+                            <input type="hidden" name="movieId" value="@movie.MovieId" />
+                            <button type="submit" class="btn-outline-secondary btn-sm" style="float:right">Remove</button>
+                        </form>
+                    </td>
+                </tr>
             }
         </tbody>
     </table>

@@ -1,0 +1,48 @@
+﻿@model Assignment3.Models.NewMovies
+<!--This webpage contains a form to enter in all the properties to edit a movie (title, year, director, rating, edited, lent to, and notes),
+    it also has a validation summary to make sure all required info is put in, at the end it has a link to see the whole movie list-->
+<div>
+    <form asp-action="EditMovie" method="post" id="editMovieForm" name="m">
+        <input type="hidden" name="MovieId" value="@Model.MovieId"/>
+        <label asp-for="Title">Title: </label>
+        <input asp-for="Title" value="@Model.Title"/>
+        <br />
+        <label asp-for="Year">Year: </label>
+        <input asp-for="Year" type="number" value="@Model.Year" />
+        <br />
+        <label asp-for="Director">Director: </label>
+        <input asp-for="Director" value="@Model.Director"/>
+        <br />
+        <label asp-for="Rating">Rating:</label>
+        <select asp-for="Rating" value="@Model.Rating">
+            <option value="">Select One:</option>
+            <option value="g">G</option>
+            <option value="pg">PG</option>
+            <option value="pg13">PG-13</option>
+            <option value="r">R</option>
+        </select>
+        <br />
+        <label asp-for="Edited">Edited: </label>
+        <select asp-for="Edited" value="@Model.Edited">
+            <option value="">Select One:</option>
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+        </select>
+        <br />
+        <label asp-for="LentTo">Lent To: </label>
+        <input asp-for="LentTo" value="@Model.LentTo"/>
+        <br />
+        <label asp-for="Notes">Notes: </label>
+        <textarea asp-for="Notes" rows="4" maxlength="25">@Model.Notes</textarea>
+        <br />
+        <button type="submit">Submit Movie</button>
+        <br />
+        <br />
+        <div asp-validation-summary="All"></div>
+    </form>
+</div>
+<br />
+<br />
+<div>
+    <a asp-action="MovieList">See Movie List</a>
+</div>

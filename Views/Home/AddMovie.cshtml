@@ -1,15 +1,9 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
-
-@model Assignment3.Models.NewMovies
+﻿@model Assignment3.Models.NewMovies
 
 <!--This webpage contains a form to enter in all the properties for a movie (title, year, director, rating, edited, lent to, and notes), 
     it also has a validation summary to make sure all required info is put in, at the end it has a link to see the whole movie list-->
 <div>
-    <form asp-action="Movies" method="post" id="movieForm">
+    <form asp-action="AddMovie" method="post" id="movieForm">
         <label asp-for="Title">Title: </label>
         <input asp-for="Title" />
         <br />

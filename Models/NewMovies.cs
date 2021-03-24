@@ -9,6 +9,8 @@ namespace Assignment3.Models
     //the NewMovies class contains a title, a year, a director, a rating, an edited, a lent to, and notes properties
     public class NewMovies
     {
+        [Key]
+        public int MovieId { get; set; }
         [Required]
         public string Title { get; set; }
         [Required]
